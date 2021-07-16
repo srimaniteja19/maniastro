@@ -1,0 +1,27 @@
+---
+
+async function getData(n){
+    let c = []
+    for(let i = 0; i<=n;i++){
+        let data = await fetch(`https://robohash.org/${i}`)
+        c.push(data.url)
+    }
+    let d  = c.map(d => `<img src="${d}" width="250px"/>`).join('')
+    return d
+}
+---
+
+<html>
+<head>
+</head>
+<body>
+  {getData(10)}
+</body>
+</html>
+
+
+<style>
+   body{
+       background-color: aqua;
+   }
+</style>
